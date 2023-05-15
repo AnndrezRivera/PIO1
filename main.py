@@ -35,7 +35,9 @@ def franquicia(franquicia: str):
 
 @app.get('/peliculas_pais/{pais}')
 def peliculas_pais(pais: str):
-    peliculas_pais = df[df['production_countries'].str.contains(pais, case=False)]
+    mask = df['production_countries'].notnull()
+    df_filtered = df[mask]
+    peliculas_pais = df_filtered[df_filtered['production_countries'].str.contains(pais, case=False)]
     cantidad = len(peliculas_pais)
     return {'pais': pais, 'cantidad': cantidad}
 
