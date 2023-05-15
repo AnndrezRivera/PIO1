@@ -53,5 +53,9 @@ def retorno(pelicula: str):
     anio = pelicula_info['release_year'].iloc[0]
     return {'pelicula': pelicula, 'inversion': inversion, 'ganancia': ganancia, 'retorno': retorno, 'anio': anio}
 
+@app.get('/')
+def root():
+    return {'mensaje': 'Bienvenido a la API!'}
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=10000)
