@@ -1,4 +1,4 @@
-![Henry](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.soyhenry.com%2Fwebfullstack&psig=AOvVaw2F-C4vSkkAhIXb8y16olm1&ust=1684262259528000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPjTwv_79_4CFQAAAAAdAAAAABAJ)
+![Henry](https://assets.soyhenry.com/logoOG.png)
 
 # Modelo de Recomendación para Servicios de Agregación de Plataformas de Streaming
 
