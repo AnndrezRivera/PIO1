@@ -10,6 +10,7 @@ app = FastAPI()
 @app.get('/peliculas_mes/{mes}')
 def peliculas_mes(mes: str):
     # Filtrar el DataFrame por el mes específico
+    df['release_date'] = pd.to_datetime(df['release_date'])
     peliculas_mes = df[df['release_date'].dt.month == int(mes)]
     # Obtener la cantidad de películas estrenadas ese mes
     cantidad = len(peliculas_mes)
@@ -17,6 +18,7 @@ def peliculas_mes(mes: str):
 
 @app.get('/peliculas_dia/{dia}')
 def peliculas_dia(dia:str):
+    df['release_date'] = pd.to_datetime(df['release_date'])
     peliculas_dia = df[df['release_date'].dt.day == int(dia)]  
     cantidad = len(peliculas_dia)  
     return {'dia':dia, 'cantidad':cantidad}
