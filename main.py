@@ -2,7 +2,7 @@ import pandas as pd
 import uvicorn
 from fastapi import FastAPI
 
-df = pd.read_csv('datos.csv')
+df = pd.read_csv('dataset/datos.csv')
 
 
 app = FastAPI()
