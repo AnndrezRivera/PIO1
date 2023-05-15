@@ -1,4 +1,5 @@
 import pandas as pd
+import uvicorn
 from fastapi import FastAPI
 
 df = pd.read_csv('dataset\\datos.csv')
@@ -51,3 +52,6 @@ def retorno(pelicula: str):
     retorno = pelicula_info['return'].iloc[0]
     anio = pelicula_info['release_year'].iloc[0]
     return {'pelicula': pelicula, 'inversion': inversion, 'ganancia': ganancia, 'retorno': retorno, 'anio': anio}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=10000)
