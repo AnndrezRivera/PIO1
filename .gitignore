@@ -1,0 +1,8 @@
+/pio1
+git init
+pip install uvicorn
+pip install fastapi
+pip install pandas
+pip install numpy
+pip install sklearn
+pip install uvicorn
