@@ -40,7 +40,7 @@ El romance es un género arraigado en el cine desde sus inicios. Las historias d
 
 El género de horror ha sido una opción popular para aquellos que buscan emociones fuertes y experiencias aterradoras. Las películas de terror exploran el miedo y la tensión, y a menudo presentan elementos sobrenaturales, criaturas aterradoras o situaciones angustiantes. Este género atrae a los amantes de las emociones fuertes y ofrece una dosis de adrenalina y suspense.
 
-![Genero pelicula](dataset/genero.png)
+![Genero pelicula](dataset/generos.png)
 
 En la producción cinematográfica, el idioma que predomina con una amplia diferencia es el inglés. El inglés se ha establecido como el idioma dominante en la industria del cine a nivel mundial. La mayoría de las películas de gran presupuesto y éxito comercial son producidas en inglés, lo que les permite llegar a audiencias internacionales de manera más efectiva.
 
