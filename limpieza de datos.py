@@ -1,7 +1,13 @@
 import pandas as pd
 import json
 
-df = pd.read_csv('dataset\\datos_raw.csv')
+
+# Cargar las partes divididas
+df_parte1 = pd.read_csv('dataset\\parte1.csv')
+df_parte2 = pd.read_csv('dataset\\parte2.csv')
+
+# Concatenar las partes en un solo DataFrame
+df = pd.concat([df_parte1, df_parte2])
 
 def procesador(df, columna):
     # Reemplazar valores faltante por cadenas vacías
