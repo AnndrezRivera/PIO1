@@ -1,4 +1,5 @@
 import numpy as np
+import scipy
 from scipy.sparse import csr_matrix
 from io import StringIO
 import requests
