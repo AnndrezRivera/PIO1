@@ -51,11 +51,23 @@ def productoras(productora: str):
 @app.get('/retorno/{pelicula}')
 def retorno(pelicula: str):
     pelicula_info = df[df['title'] == pelicula]
-    inversion = pelicula_info['budget'].iloc[0]
-    ganancia = pelicula_info['revenue'].iloc[0]
-    retorno = pelicula_info['return'].iloc[0]
-    anio = pelicula_info['release_year'].iloc[0]
-    return {'pelicula': pelicula, 'inversion': inversion, 'ganancia': ganancia, 'retorno': retorno, 'anio': anio}
+
+    if pelicula_info.empty:
+        raise HTTPException(status_code=404, detail="Pelicula no encontrada")
+
+    inversion = int(pelicula_info['budget'].iloc[0])
+    ganancia = int(pelicula_info['revenue'].iloc[0])
+    retorno = int(pelicula_info['return'].iloc[0])
+    anio = int(pelicula_info['release_year'].iloc[0])
+
+    return {
+        'pelicula': pelicula,
+        'inversion': inversion,
+        'ganancia': ganancia,
+        'retorno': retorno,
+        'anio': anio
+    }
+
 
 @app.get('/')
 def root():
