@@ -4,5 +4,6 @@ pip install uvicorn
 pip install fastapi
 pip install pandas
 pip install numpy
-pip install sklearn
 pip install uvicorn
+pip install sweetviz
+pip install ydata-profiling
