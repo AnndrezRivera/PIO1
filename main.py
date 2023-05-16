@@ -57,7 +57,7 @@ def retorno(pelicula: str):
 
     inversion = int(pelicula_info['budget'].iloc[0])
     ganancia = int(pelicula_info['revenue'].iloc[0])
-    retorno = int(pelicula_info['return'].iloc[0])
+    retorno = float(pelicula_info['return'].iloc[0])
     anio = int(pelicula_info['release_year'].iloc[0])
 
     return {
