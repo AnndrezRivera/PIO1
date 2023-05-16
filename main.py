@@ -1,6 +1,14 @@
+import requests
 import pandas as pd
 import uvicorn
 from fastapi import FastAPI
+import joblib
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import pairwise_distances
+
+
+
+
 
 df = pd.read_csv('dataset/datos.csv')
 
@@ -67,6 +75,35 @@ def retorno(pelicula: str):
         'retorno': retorno,
         'anio': anio
     }
+
+
+
+
+
+
+
+
+# Cargalos los archivos del modelo
+similitud_url = "https://drive.google.com/uc?export=view&id=13GcvPN0Q1E0c4yQxAAbQrABD0pdYd0dY"
+response = requests.get(similitud_url)
+
+# El dataframe con la inforacion del modelo
+matriz_de_similitud = pd.read_csv(response.content)
+# Cargamos los vectorez.
+vectores = joblib.load('dataset/vectores.joblib')
+
+
+# Definimos la funciones del modelo
+def recomendaciones(title):
+    pelis = df_2[title]
+    peliculas_similares = pelis.sort_values(ascending=False)[1:6].index.tolist()
+    return peliculas_similares
+
+
+@app.get('/recomendacion/{title}')
+def recomendacion(title: str):
+    peliculas_similares = recomendaciones(title)
+    return {'recommended_list': peliculas_similares}
 
 
 @app.get('/')
