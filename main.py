@@ -1,17 +1,7 @@
-import numpy as np
-import scipy
-from scipy.sparse import csr_matrix
-from io import StringIO
-import requests
 import pandas as pd
 import uvicorn
 from fastapi import FastAPI
 import joblib
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import pairwise_distances
-
-
-
 
 
 df = pd.read_csv('dataset/datos.csv')
@@ -79,30 +69,6 @@ def retorno(pelicula: str):
         'retorno': retorno,
         'anio': anio
     }
-
-
-# Cargamos los archivos del modelo
-similitud_url = "https://drive.google.com/uc?export=view&id=13GcvPN0Q1E0c4yQxAAbQrABD0pdYd0dY"
-response = requests.get(similitud_url)
-csv_data = response.content.decode('utf-8')  # Convert bytes to string
-file_obj = StringIO(csv_data)  # Create a file-like object
-
-# El dataframe con la información del modelo
-matriz_de_similitud = pd.read_csv(file_obj)
-
-# Cargamos los vectores
-vectores = joblib.load('dataset/vectores.joblib')
-
-# Definimos la función del modelo
-def recomendaciones(title):
-    pelis = df_2[title]
-    peliculas_similares = pelis.sort_values(ascending=False)[1:6].index.tolist()
-    return peliculas_similares
-
-@app.get('/recomendacion/{title}')
-def recomendacion(title: str):
-    peliculas_similares = recomendaciones(title)
-    return {'recommended_list': peliculas_similares}
 
 
 
