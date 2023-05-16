@@ -6,3 +6,4 @@ uvicorn
 sweetviz
 ydata-profiling
 scikit-learn
+joblib
