@@ -7,3 +7,4 @@ sweetviz
 ydata-profiling
 scikit-learn
 joblib
+scipy
