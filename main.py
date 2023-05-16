@@ -1,4 +1,4 @@
-from scipy.sparse import csr_matrix
+from scipy  import csr_matrix
 from io import StringIO
 import requests
 import pandas as pd
